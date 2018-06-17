@@ -36,7 +36,7 @@ var f=0, f2=0, ff=0, ff2=0, flag=-1;
     *
     *@var number menuH
     */  
-var menuH=1, hBegin=1, hEnd=1;
+var menuH=0, hBegin=0, hEnd=0;
 
 /**
     * Начало эффекта прилипания для сотрудников
@@ -66,7 +66,7 @@ var menuH=1, hBegin=1, hEnd=1;
     *
     *@var number leftBig
     */
-var hBegin2=1, hEnd2=1, leftBig=1;
+var hBegin2=0, hEnd2=0, leftBig=0;
 
 /**
     * Новое положение скролла
@@ -83,7 +83,7 @@ var hBegin2=1, hEnd2=1, leftBig=1;
     *
     *@var number prewH
     */
-var hNow=1, prewH=1;
+var hNow=0, prewH=0;
 
 /**
     * Отступ первых четырех разделов 
