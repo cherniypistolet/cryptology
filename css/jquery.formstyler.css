@@ -436,9 +436,7 @@
 .jq-select-multiple li.option {
 	padding-left: 25px;
 }
-/*jq-select-multiple.focused {
-	border: 1px solid #5794BF;
-*/
+
 
 
 input[type='email'].styler,
