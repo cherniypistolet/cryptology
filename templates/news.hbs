@@ -1,0 +1,21 @@
+<div class="content_wrap news">
+    <div class="container">
+        <div class="content news_page">
+            <div class="news_wrap">
+                <h2>{{intlGet "messages.news.l1"}}</h2>
+                <div class="news_scroll mCustomScrollbar"  data-mcs-theme="minimal-dark">
+                    <div class="news_items" >
+                        {{#each this}}
+                        <div class="news_item">
+                            <span>{{title}}</span>
+                            <p>{{content}}</p>
+                            <a href="{{url}}" target="_blank">{{intlGet "messages.news.l2"}}</a>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<a href="" class="edit_btn" target="_blank">{{intlGet "messages.news.l3"}}</a>-->
+</div>

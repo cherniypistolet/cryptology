@@ -1,0 +1,23 @@
+{{#if editmode}}
+    {{#each pairs}}
+        <div class="par_item">
+            <select class="basic pair-select">
+                {{#each ../data.rows}}
+                    <option value="{{code}}" {{#if (eq code ../from)}}selected="selected"{{/if}}>{{code}} ({{name}})</option>
+                {{/each}}
+            </select>
+            <select class="basic pair-select">
+                {{#each ../data.rows}}
+                    <option value="{{code}}" {{#if (eq code ../to)}}selected="selected"{{/if}}>{{code}} ({{name}})</option>
+                {{/each}}
+            </select>
+        </div>
+    {{/each}}
+{{else}}
+    {{#each data}}
+        <div class="par_item">
+        <span class="pair_item_span">{{ticker.base}}/{{ticker.target}}</span>
+        <p>{{roundTo ticker.price 2}}</p>
+        </div>
+    {{/each}}
+{{/if}}

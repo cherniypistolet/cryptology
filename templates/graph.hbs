@@ -1,0 +1,27 @@
+<div class="content_wrap scroll mCustomScrollbar graphic_page" data-mcs-theme="minimal-dark">
+    <div class="container">
+        <div class="content news_page">
+            <div class="graphic_wrap">
+                <h2>Динамика вашего портфеля</h2>
+                <div class="graphic_content clear">
+                    <div class="graphic">
+                        <canvas id="myChart" width="100%"></canvas>
+                    </div>
+                    <div class="graph_sel">
+                        <div class="sel">
+                            <p>Выберете валюту</p>
+                            <select class="basic" id="gcurrencyselect">
+                                {{#each bag}}
+                                    <option value="{{this.currency}}" {{#if (eq 0 @index)}}selected="selected"{{/if}} data-id="{{this.adding_date}}">{{this.currency}}</option>
+                                {{/each}}
+                            </select>
+                            <div class="total">{{bag.[0].total}}</div>
+                            <div class="procent">{{getBagItemPercentage exchanges bag.[0].exchange bag.[0].currency bag.[0].price}}%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="" class="edit_btn port_btn"><span><img src="img/go_back.png" alt=""></span>Вернуться назад</a>
+</div>

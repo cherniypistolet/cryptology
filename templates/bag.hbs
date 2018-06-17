@@ -1,0 +1,75 @@
+<div class="content_wrap  signals_page portfolio_page">
+    <div class="container">
+        <div class="content ">
+            <div class="list_wrap portfolio_wrap">
+                <h2>{{intlGet "messages.bag.l1"}}</h2>
+                <span class="add">{{intlGet "messages.bag.l2"}}</span>
+                <div class="add_inputs">
+                    <div class="input_row clear">
+                        <div class="sel porf">
+                            <p>{{intlGet "messages.bag.l3"}}</p>
+                            <select class="basic" id="currencyselect">
+                                {{#each currencies}}
+                                    <option value="{{this}}" {{#if (eq 0 @index)}}selected="selected"{{/if}}>{{this}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="sel porf">
+                            <p>{{intlGet "messages.bag.l4"}}</p>
+                            <select class="basic" id="exchangeselect">
+                                {{#each exchanges}}
+                                    <option value="{{@key}}" {{#if (eq 0 @index)}}selected="selected"{{/if}}>{{@key}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="inp porf">
+                            <p>{{intlGet "messages.bag.l5"}}</p>
+                            <input type="text" class="input_style" id="summa" placeholder="1.2856">
+                        </div>
+                        <div class="inp porf">
+                            <p>{{intlGet "messages.bag.l6"}}</p>
+                            <input type="text" class="input_style" id="price" placeholder="{{price}}">
+                        </div>
+                        <div class="inp porf">
+                            <p>{{intlGet "messages.bag.l7"}}</p>
+                            <input type="text" class="input_style" id="date" placeholder="12.06.17">
+                        </div>
+                        <div class="button_wrap">
+                            <a href="" class="edit_btn" id="add_bagitem">Ok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list_content ">
+                <div class="top_table">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>{{intlGet "messages.bag.l8"}}</td>
+                            <td>{{intlGet "messages.bag.l9"}}</td>
+                            <td>{{intlGet "messages.bag.l10"}}</td>
+                            <td>{{intlGet "messages.bag.l11"}}</td>
+                            <td>{{intlGet "messages.bag.l12"}}</td>
+                            <td>{{intlGet "messages.bag.l13"}}</td>
+                            <td>{{intlGet "messages.bag.l14"}}</td>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="bottom_table mCustomScrollbar" data-mcs-theme="minimal-dark">
+                    <table>
+                        <tbody>
+                        <tr>
+                            {{#each bag}}
+                                {{>bag_item exchanges=../exchanges}}
+                            {{/each}}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--<a href="" class="edit_btn port_btn" id="showGraph">{{intlGet "messages.bag.l15"}}</a>-->
+</div>

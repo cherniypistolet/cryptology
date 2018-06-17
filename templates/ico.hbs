@@ -1,0 +1,36 @@
+<div class="content_wrap ico_page">
+    <div class="container">
+        <div class="content">
+            <div class="list_wrap">
+                <h2>{{intlGet "messages.ico.l1"}}</h2>
+                <div class="list_content">
+                    <div class="top_table">
+                        <table>
+                            <thead>
+                            <tr>
+                                <td>{{intlGet "messages.ico.l2"}}</td>
+                                <td>{{intlGet "messages.ico.l3"}}</td>
+                                <td>{{intlGet "messages.ico.l4"}}</td>
+                                <td>{{intlGet "messages.ico.l5"}}</td>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="bottom_table mCustomScrollbar" data-mcs-theme="minimal-dark">
+                        <table>
+                            {{#each this}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td><a href="{{url}}" target="_blank">{{url}}</a></td>
+                                <td>{{formatICOTime date}}</td>
+                                <td>{{summ}} {{currency}}</td>
+                            </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

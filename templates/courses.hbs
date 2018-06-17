@@ -1,0 +1,45 @@
+<div class="content_wrap">
+    <div class="container">
+        <div class="content">
+            <div class="calc_wrap">
+                <h2>{{intlGet "messages.courses.l1"}}</h2>
+                <div class="calc_inputs clear">
+                    <div class="calc_desc">{{intlGet "messages.courses.l2"}} </div>
+                    <div class="inputs_wrap">
+                        <div class="input_row clear" id="row1">
+                            <div class="inp">
+                                <input type="text" class="input_style" placeholder="0.0" id="field1">
+                            </div>
+                            <div class="sel">
+                                <select class="basic">
+                                    <option value="">USD</option>
+                                    {{#each this}}
+                                    <option value="{{code}}">{{code}} ({{name}})</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input_row clear" id="row2">
+                            <div class="inp">
+                                <input type="text" class="input_style" placeholder="0" id="field2">
+                            </div>
+                            <div class="sel">
+                                <select class="basic">
+                                    {{#each this}}
+                                        <option value="{{code}}">{{code}} ({{name}})</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calc_desc">{{intlGet "messages.courses.l3"}}</div>
+                </div>
+            </div>
+            <div class="para_wrap">
+                <h3>{{intlGet "messages.courses.l4"}}</h3>
+                <div class="par_items"></div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="edit_btn" id="edit_pairs">{{intlGet "messages.courses.l5"}}</a>
+</div>

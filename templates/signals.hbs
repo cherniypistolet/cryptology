@@ -1,0 +1,69 @@
+<div class="content_wrap signals_page">
+    <div class="container">
+        <div class="content ">
+            <div class="list_wrap signals_wrap">
+                <h2>{{intlGet "messages.signals.l1"}}</h2>
+                <span class="add">{{intlGet "messages.signals.l2"}}</span>
+                <div class="add_inputs">
+                    <div class="input_row clear">
+                        <div class="sel porf">
+                            <p>{{intlGet "messages.signals.l3"}}</p>
+                            <select class="basic" id="currencyselect">
+                                {{#each currencies}}
+                                    <option value="{{this}}" {{#if (eq 0 @index)}}selected="selected"{{/if}}>{{this}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="sel porf">
+                            <p>{{intlGet "messages.signals.l4"}}</p>
+                            <select class="basic" id="exchangeselect">
+                                {{#each exchanges}}
+                                    <option value="{{@key}}" {{#if (eq 0 @index)}}selected="selected"{{/if}}>{{@key}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="sel porf">
+                            <p>{{intlGet "messages.signals.l12"}}</p>
+                            <select class="basic" id="conditionselect">
+                                    <option value=">=" selected="selected">&gt=</option>
+                                    <option value="<=" selected="selected">&lt=</option>
+                            </select>
+                        </div>
+                        <div class="inp porf">
+                            <p>{{intlGet "messages.signals.l5"}}</p>
+                            <input type="text" id="price_expected" class="input_style" placeholder="{{price}}">
+                        </div>
+                        <div class="button_wrap">
+                            <a href="" class="edit_btn" id="add_signal">Ok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list_content">
+                <div class="top_table">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>{{intlGet "messages.signals.l6"}}</td>
+                            <td>{{intlGet "messages.signals.l7"}}</td>
+                            <td>{{intlGet "messages.signals.l8"}}</td>
+                            <td>{{intlGet "messages.signals.l12"}}</td>
+                            <td>{{intlGet "messages.signals.l9"}}</td>
+                            <td>{{intlGet "messages.signals.l10"}}</td>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="bottom_table mCustomScrollbar" data-mcs-theme="minimal-dark">
+                    <table>
+                        <tbody>
+                        {{#each signals}}
+                            {{>signals_item exchanges=../exchanges k=@key}}
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
