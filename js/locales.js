@@ -6,11 +6,18 @@ var Locales = {
                 l1: 'Courses',
                 l2: 'Portfolio',
                 l3: 'Signals',
-<<<<<<< HEAD
-                l4: 'NewsCrypto'
-=======
-                l4: 'CRYPTONEWS' 
->>>>>>> lab4
+                <<
+                <<
+                <<
+                <
+                HEAD
+                l4: 'NewsCrypto' ===
+                    ===
+                    =
+                    l4: 'CRYPTONEWS' >>>
+                    >>>
+                    >
+                    lab4
             },
             footer: {
                 l1: 'Volumes of markets',

